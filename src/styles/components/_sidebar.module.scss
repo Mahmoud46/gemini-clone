@@ -1,0 +1,140 @@
+@use "../mixins/scrollbar" as *;
+@use "../mixins/fadeIn" as *;
+.sidebar {
+	position: sticky;
+	top: 0;
+	height: 100vh;
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 25px 15px;
+	background: #f0f4f9;
+	position: sticky;
+
+	.menu {
+		display: block;
+		padding: 13px 13px;
+		cursor: pointer;
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		&:hover {
+			background: #e2e6eb;
+		}
+	}
+
+	.newChat {
+		margin-top: 50px;
+		display: inline-flex;
+		gap: 10px;
+		align-items: center;
+		padding: 10px 15px;
+		background: #e6eaf1;
+		color: grey;
+		border-radius: 50px;
+		font-size: 14px;
+		cursor: pointer;
+		p {
+			@include fadeInLeftAnimation;
+		}
+		&:hover {
+			background: #cedbf1;
+		}
+
+		&.inactive {
+			opacity: 0.9;
+			pointer-events: none;
+		}
+	}
+
+	.recentEntry {
+		display: flex;
+		gap: 10px;
+		justify-content: start;
+		align-items: center;
+		padding: 10px;
+		padding-right: 40px;
+		border-radius: 50px;
+		color: #282828;
+		cursor: pointer;
+		&:hover {
+			background: #e2e6eb;
+		}
+
+		&.active {
+			background: #d3e3fd;
+			color: #0842a0;
+		}
+		p {
+			@include fadeInLeftAnimation;
+		}
+	}
+	.recent {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+		overflow-y: auto;
+		width: 280px;
+		max-height: 300px;
+		overflow-y: auto;
+		margin-top: 10px;
+		.recentTitle {
+			margin-top: 30px;
+			margin-bottom: 20px;
+		}
+		.recentEntry {
+			font-size: 16px;
+			justify-content: space-between;
+			padding-right: 10px;
+			position: relative;
+			span {
+				font-size: 18px;
+				font-variation-settings: "FILL" 0, "wght" 600, "GRAD" 0, "opsz" 24;
+
+				&:last-child {
+					opacity: 0;
+					pointer-events: none;
+					transition: 0.5s ease-in-out all;
+					margin-left: auto;
+
+					&:hover {
+						color: red;
+					}
+				}
+			}
+
+			p {
+				flex: 1;
+			}
+
+			&:hover {
+				span:last-child {
+					cursor: pointer;
+					opacity: 1;
+					pointer-events: all;
+				}
+			}
+
+			i {
+				position: absolute;
+				height: 100%;
+				width: 85%;
+				left: 0;
+				background: rebeccapurple;
+				z-index: 10;
+				background: transparent;
+			}
+			@include fadeInAnimation;
+		}
+		@include customizableScrollBar;
+	}
+
+	.bottom {
+		display: flex;
+		flex-direction: column;
+		.bottomItem {
+			padding: 10px;
+			padding-left: 15px;
+		}
+	}
+}

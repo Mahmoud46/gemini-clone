@@ -1,54 +1,86 @@
-# React + TypeScript + Vite
+# 🤖 Gemini Clone – AI Chat App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sleek, single-page conversational AI interface inspired by **Google Gemini**, built with **React.js**, **TypeScript**, **SASS**, and powered by the official **Gemini API**. This lightweight clone delivers a responsive chat experience — no login, no routing, just clean and simple AI interaction.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 💬 **Chat-Style Conversation** – Gemini-style prompt & response interaction
+- 🌐 **Google Gemini API** – Real-time AI responses powered by Gemini
+- 🎨 **SASS Styling** – Fully responsive, modern, and minimalist interface
+- ⚛️ **Built with React + TypeScript** – Strongly typed, clean component structure
+- 🧠 **Single Page App (SPA)** – No routing, no auth, no distractions
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🛠️ Tech Stack
+
+- **Framework:** React.js
+- **Language:** TypeScript
+- **Styling:** SASS / SCSS
+- **Data Handling:** `fetch` API
+- **AI Backend:** [Gemini API via Google AI Studio](https://aistudio.google.com/app)
+
+---
+
+## 📁 Folder Structure
+
+```bash
+src/
+├── assets/
+├── config/
+│   └── gemini.config.ts
+├── context/
+│   ├── context.tsx
+│   └── context.provider.tsx
+├── interfaces/
+│   ├── chat.interface.ts
+│   └── context.interface.ts
+├── components/
+│   ├── Main.tsx
+│   └── Sidebar.tsx
+├── styles/
+│   ├── components/
+│   ├── mixins/
+│   └── App.module.scss
+├── App.tsx
+└── main.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🔧 Setup Instructions
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+1. Clone the repository
+
+```bash
+git clone https://github.com/Mahmoud46/gemini-clone.git
+cd gemini-clone
 ```
+
+2. Install dependencies
+
+```bash
+npm install
+```
+
+3. Add Gemini API key to `.env` file<br/>
+   You can generate a key from [Google AI Studio](https://aistudio.google.com/app/apikey).
+
+```env
+VITE_GEMINI_API_KEY = your_gemini_api_key_here
+```
+
+4. Start the development server
+
+```bash
+npm run dev
+```
+
+---
+
+## 🙌 Acknowledgements
+
+- Chat UI inspired by [Gemini](https://gemini.google.com/)
+- AI powered by [Gemini API](https://aistudio.google.com/app)

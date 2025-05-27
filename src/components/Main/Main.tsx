@@ -77,6 +77,8 @@ export default function Main(): ReactNode {
 		promptInput,
 		chats,
 		recentChatId,
+		setShowResult,
+		setRecentChatId,
 	} = useContext(Context) as ContextDataContent;
 
 	const cards: CardInterface[] = [
@@ -98,10 +100,26 @@ export default function Main(): ReactNode {
 		},
 	];
 
+	const newChat = () => {
+		setShowResult(false);
+		setRecentChatId(-1);
+	};
+
 	return (
 		<div className={styles.main}>
 			<nav>
-				<p>Gemini</p>
+				<div className={styles.left}>
+					<button
+						className={`${styles.newChat} ${
+							recentChatId == -1 ? styles.inactive : ""
+						}`}
+						onClick={newChat}
+					>
+						<span className="material-symbols-outlined">add</span>
+						<p>New chat</p>
+					</button>
+					<p>Gemini</p>
+				</div>
 				<img src={userIcon} alt="" />
 			</nav>
 

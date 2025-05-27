@@ -11,7 +11,9 @@
 	padding: 25px 15px;
 	background: #f0f4f9;
 	position: sticky;
-
+	@media (max-width: 960px) {
+		display: none;
+	}
 	.menu {
 		display: block;
 		padding: 13px 13px;

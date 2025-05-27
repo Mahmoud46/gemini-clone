@@ -1,10 +1,10 @@
 import { ReactNode, useContext, useState } from "react";
-import styles from "../styles/App.module.css";
-import ContextDataContent from "../interfaces/context.interface";
-import { Context } from "../context/context";
-import { Chat, ChatRef } from "../interfaces/chat.interface";
+import styles from "./Sidebar.module.scss";
+import ContextDataContent from "../../interfaces/context.interface";
+import { Context } from "../../context/context";
+import { Chat, ChatRef } from "../../interfaces/chat.interface";
 
-type TopPromp = {
+type TopProps = {
 	isExpanded: boolean;
 	setIsExpanded: React.Dispatch<React.SetStateAction<boolean>>;
 };
@@ -73,7 +73,7 @@ function RecentChat({
 	);
 }
 
-function Top(expand: TopPromp): ReactNode {
+function Top(expand: TopProps): ReactNode {
 	const {
 		setShowResult,
 		chatsList,

@@ -1,9 +1,9 @@
 import { ReactNode, useContext, useState } from "react";
-import styles from "../styles/App.module.css";
-import userIcon from "../assets/user_icon.jpg";
-import { Context } from "../context/context";
-import ContextDataContent from "../interfaces/context.interface";
-import geminiIcon from "../assets/gemini_icon.png";
+import styles from "./Main.module.scss";
+import userIcon from "../../assets/user_icon.jpg";
+import { Context } from "../../context/context";
+import ContextDataContent from "../../interfaces/context.interface";
+import geminiIcon from "../../assets/gemini_icon.png";
 import { marked } from "marked";
 
 interface CardInterface {
@@ -11,17 +11,17 @@ interface CardInterface {
 	icon: string;
 }
 
-type CardPrompt = {
+type CardProps = {
 	message: string;
 	icon: string;
 	setPromptInput: React.Dispatch<React.SetStateAction<string>>;
 };
 
-type ChatConstPromp = {
+type ChatConstProps = {
 	head: string;
 	body: string;
 };
-function ChatStructure(chat: ChatConstPromp): ReactNode {
+function ChatStructure(chat: ChatConstProps): ReactNode {
 	const [copied, setCopied] = useState(false);
 
 	const copyResponse = async () => {
@@ -54,7 +54,7 @@ function ChatStructure(chat: ChatConstPromp): ReactNode {
 	);
 }
 
-function Card(card: CardPrompt): ReactNode {
+function Card(card: CardProps): ReactNode {
 	return (
 		<div
 			className={styles.card}

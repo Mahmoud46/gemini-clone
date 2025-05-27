@@ -1,5 +1,6 @@
-@use "../mixins/scrollbar" as *;
-@use "../mixins/fadeIn" as *;
+@use "../../styles/mixins/scrollbar" as *;
+@use "../../styles/mixins/fadeIn" as *;
+
 .sidebar {
 	position: sticky;
 	top: 0;

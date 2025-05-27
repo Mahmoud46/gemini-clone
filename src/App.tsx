@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
-import "./styles/App.module.css";
-import Sidebar from "./components/Sidebar";
-import Main from "./components/Main";
+import "./styles/App.module.scss";
+import Main from "./components/Main/Main";
+import Sidebar from "./components/Sidebar/Sidebar";
 
 function App(): ReactNode {
 	return (

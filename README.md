@@ -38,10 +38,9 @@ src/
 │   ├── chat.interface.ts
 │   └── context.interface.ts
 ├── components/
-│   ├── Main.tsx
-│   └── Sidebar.tsx
+│   ├── Main/
+│   └── Sidebar/
 ├── styles/
-│   ├── components/
 │   ├── mixins/
 │   └── App.module.scss
 ├── App.tsx

@@ -7,7 +7,7 @@ A sleek, single-page conversational AI interface inspired by **Google Gemini**, 
 ## 🚀 Features
 
 - 💬 **Chat-Style Conversation** – Gemini-style prompt & response interaction
-- 🌐 **Google Gemini API** – Real-time AI responses powered by Gemini
+- 🌐 **Google Gemini API** – Real-time AI responses powered by Gemini, **gemini-2.0-flash** model.
 - 🎨 **SASS Styling** – Fully responsive, modern, and minimalist interface
 - ⚛️ **Built with React + TypeScript** – Strongly typed, clean component structure
 - 🧠 **Single Page App (SPA)** – No routing, no auth, no distractions

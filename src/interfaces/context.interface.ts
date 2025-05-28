@@ -21,4 +21,6 @@ export default interface ContextDataContent {
 	chats: Chat[];
 	recentChatId: number;
 	setRecentChatId: React.Dispatch<React.SetStateAction<number>>;
+	isSideBarOpened: boolean;
+	setIsSideBarOpened: React.Dispatch<React.SetStateAction<boolean>>;
 }

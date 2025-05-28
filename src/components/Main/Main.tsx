@@ -79,6 +79,8 @@ export default function Main(): ReactNode {
 		recentChatId,
 		setShowResult,
 		setRecentChatId,
+		setIsSideBarOpened,
+		isSideBarOpened,
 	} = useContext(Context) as ContextDataContent;
 
 	const cards: CardInterface[] = [
@@ -109,6 +111,14 @@ export default function Main(): ReactNode {
 		<div className={styles.main}>
 			<nav>
 				<div className={styles.left}>
+					<button
+						onClick={() => {
+							setIsSideBarOpened(!isSideBarOpened);
+						}}
+					>
+						<span className="material-symbols-outlined">menu</span>
+					</button>
+
 					<button
 						className={`${styles.newChat} ${
 							recentChatId == -1 ? styles.inactive : ""

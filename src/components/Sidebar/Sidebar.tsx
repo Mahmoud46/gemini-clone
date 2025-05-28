@@ -7,6 +7,7 @@ import { Chat, ChatRef } from "../../interfaces/chat.interface";
 type TopProps = {
 	isExpanded: boolean;
 	setIsExpanded: React.Dispatch<React.SetStateAction<boolean>>;
+	isSideBarOpened: boolean;
 };
 
 function RecentChat({
@@ -81,10 +82,12 @@ function Top(expand: TopProps): ReactNode {
 		recentChatId,
 		setChats,
 		setChatsList,
+		setIsSideBarOpened,
 	} = useContext(Context) as ContextDataContent;
 
 	const expandSideBar = () => {
-		expand.setIsExpanded((prev) => !prev);
+		if (window.innerWidth <= 960) setIsSideBarOpened(false);
+		else expand.setIsExpanded((prev) => !prev);
 	};
 
 	const newChat = () => {
@@ -109,7 +112,8 @@ function Top(expand: TopProps): ReactNode {
 				<span className="material-symbols-outlined">add</span>
 				{expand.isExpanded && <p>New chat</p>}
 			</div>
-			{expand.isExpanded && (
+			{(expand.isExpanded ||
+				(expand.isSideBarOpened && window.innerWidth <= 960)) && (
 				<div className={styles.recent}>
 					<p className={styles.recentTitle}>Recent</p>
 					{chatsList.map((chat, index) => (
@@ -129,20 +133,30 @@ function Top(expand: TopProps): ReactNode {
 	);
 }
 
-function Bottom({ isExpanded }: { isExpanded: boolean }): ReactNode {
+function Bottom({
+	isExpanded,
+	isOpened,
+}: {
+	isExpanded: boolean;
+	isOpened: boolean;
+}): ReactNode {
 	return (
 		<div className={styles.bottom}>
 			<div className={`${styles.bottomItem} ${styles.recentEntry}`}>
 				<span className="material-symbols-outlined">help</span>
-				{isExpanded && <p>Help</p>}
+				{(isExpanded || (isOpened && window.innerWidth <= 960)) && <p>Help</p>}
 			</div>
 			<div className={`${styles.bottomItem} ${styles.recentEntry}`}>
 				<span className="material-symbols-outlined">history</span>
-				{isExpanded && <p>Activity</p>}
+				{(isExpanded || (isOpened && window.innerWidth <= 960)) && (
+					<p>Activity</p>
+				)}
 			</div>
 			<div className={`${styles.bottomItem} ${styles.recentEntry}`}>
 				<span className="material-symbols-outlined">settings</span>
-				{isExpanded && <p>Settings</p>}
+				{(isExpanded || (isOpened && window.innerWidth <= 960)) && (
+					<p>Settings</p>
+				)}
 			</div>
 		</div>
 	);
@@ -150,10 +164,19 @@ function Bottom({ isExpanded }: { isExpanded: boolean }): ReactNode {
 
 export default function Sidebar(): ReactNode {
 	const [isExpanded, setIsExpanded] = useState<boolean>(false);
+	const { isSideBarOpened } = useContext(Context) as ContextDataContent;
 	return (
-		<div className={styles.sidebar}>
-			<Top isExpanded={isExpanded} setIsExpanded={setIsExpanded} />
-			<Bottom isExpanded={isExpanded} />
+		<div
+			className={`${styles.sidebar} ${
+				isSideBarOpened && window.innerWidth <= 960 ? styles.open : ""
+			}`}
+		>
+			<Top
+				isExpanded={isExpanded}
+				setIsExpanded={setIsExpanded}
+				isSideBarOpened={isSideBarOpened}
+			/>
+			<Bottom isExpanded={isExpanded} isOpened={isSideBarOpened} />
 		</div>
 	);
 }

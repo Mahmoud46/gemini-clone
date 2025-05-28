@@ -21,6 +21,7 @@ export default function ContextProvider({ children }: { children: ReactNode }) {
 	const [chatsList, setChatsList] = useState<ChatRef[]>([]);
 	const [chats, setChats] = useState<Chat[]>([]);
 	const [recentChatId, setRecentChatId] = useState<number>(-1);
+	const [isSideBarOpened, setIsSideBarOpened] = useState<boolean>(false);
 
 	const handleChatHistory = (prompt: string): ChatsHistoryPart[] => {
 		const chatId: number = chats.findIndex((chat) => chat.id == recentChatId);
@@ -119,6 +120,8 @@ export default function ContextProvider({ children }: { children: ReactNode }) {
 		setChatsList,
 		recentChatId,
 		setRecentChatId,
+		isSideBarOpened,
+		setIsSideBarOpened,
 	};
 
 	return <Context.Provider value={contextValue}>{children}</Context.Provider>;

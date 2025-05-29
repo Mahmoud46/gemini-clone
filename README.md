@@ -26,7 +26,7 @@ A sleek, single-page conversational AI interface inspired by **Google Gemini**, 
 
 ## 📸 Preview
 
-![Gemini Clone Screenshot](src\assets\gemini_clone.gif)
+<img src="src\assets\gemini_clone.gif">
 
 ---
 

@@ -28,6 +28,8 @@ A sleek, single-page conversational AI interface inspired by **Google Gemini**, 
 
 <img src="src\assets\gemini_clone.gif">
 
+[Live Demo](https://gemini-clone-sooty-three.vercel.app/)
+
 ---
 
 ## 📁 Folder Structure

@@ -15,7 +15,7 @@ $table-font-size: 0.75rem; // Small font size for compactness
 
 .main {
 	flex: 1;
-	height: 100vh;
+	height: 100dvh;
 	align-items: center;
 	flex-direction: column;
 	overflow-y: auto;
@@ -91,7 +91,7 @@ $table-font-size: 0.75rem; // Small font size for compactness
 		overflow-y: auto;
 		flex-grow: 1;
 		padding-bottom: 50px;
-		min-height: 100vh;
+		min-height: 100dvh;
 		.greet {
 			margin: 50px 0px;
 			font-size: 56px;
@@ -298,7 +298,7 @@ $table-font-size: 0.75rem; // Small font size for compactness
 		max-width: 900px;
 		padding: 0px 20px;
 		margin: auto;
-		bottom: 0vh;
+		bottom: 0dvh;
 		z-index: 2;
 		margin-bottom: 0;
 		background: #fff;
